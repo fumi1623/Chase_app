@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  learning_name: MyString
+  learning_id: MyString
+  learning_detail: MyText
+  learning_post_date: 2021-04-30
+  learning_upgrade_date: 2021-04-30
+  learning_image_id: MyString
+  user_id: 1
+
+two:
+  learning_name: MyString
+  learning_id: MyString
+  learning_detail: MyText
+  learning_post_date: 2021-04-30
+  learning_upgrade_date: 2021-04-30
+  learning_image_id: MyString
+  user_id: 1

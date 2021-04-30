@@ -1,0 +1,44 @@
+<div>
+  <h4>Learning Title</h4>
+  <%= @learning.learning_name %>
+
+  <h4>Learning Image</h4>
+  <%= attachment_image_tag @learning, :learning_image %>
+
+  <h4>Learning Detail</h4>
+  <%= @learning.learning_detail %>
+
+  <h4>Registrated Date</h4>
+  <%= @learning.learning_post_date %>
+
+  <% if @learning.user == current_user %>
+    <%= link_to "Delete", learning_path(@learning), method: :delete %>
+  <% end %>
+</div>
+
+<div>
+
+  <p>コメント件数：<%= @learning.learning_comments.count %></p>
+
+  <% @learning.learning_comments.each do |learning_comment| %>
+    <%= learning_comment.user.name %>
+    <%= learning_comment.created_at.strftime('%Y/%m/%d') %><%= learning_comment.comment %>
+
+    <% if learning_comment.user == current_user %>
+    <div>
+      <%= link_to "Delete", learning_learning_comment_path(learning_comment.learning, learning_comment), method: :delete %>
+    </div>
+    <% end %>
+
+  <% end %>
+
+
+
+</div>
+
+<div>
+  <%= form_with(model: [@learning, @learning_comment], local: true) do |f| %>
+    <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>

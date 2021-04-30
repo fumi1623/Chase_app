@@ -1,0 +1,12 @@
+<h1>Registration New Learning</h1>
+<%= form_with model: @learning, local:true do |f| %>
+  <h4>Learning Title</h4>
+  <%= f.text_field :learning_name %>
+  <h4>Learning Image</h4>
+  <%= f.attachment_field :learning_image %>
+  <h4>Learning Detail</h4>
+  <%= f.text_field :learning_detail %>
+  <h4>Registration Date</h4>
+  <%= f.date_field :learning_post_date %>
+  <%= f.submit '投稿' %>
+<% end %>
