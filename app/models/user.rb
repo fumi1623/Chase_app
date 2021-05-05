@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :learnings, dependent: :destroy
   has_many :learning_comments, dependent: :destroy
+  attachment :profile_image
 
 end

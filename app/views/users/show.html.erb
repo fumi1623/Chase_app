@@ -1,0 +1,31 @@
+<div>
+  <h3><%= @user.name %></h3>
+
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+
+  <% if @user.id == current_user.id %>
+    <p><%= link_to "Profile edit", edit_user_path(@user) %></p>
+  <% end %>
+</div>
+
+
+<% @learnings.each do |learning| %>
+  <div>
+
+    <h4>Learning Title</h4>
+    <%= link_to learning_path(learning.id) do %>
+      <%= learning.learning_name %>
+    <% end %>
+
+    <h4>Learning Image</h4>
+    <%= attachment_image_tag learning, :learning_image %>
+
+    <h4>Learning Detail</h4>
+    <%= learning.learning_detail %>
+
+    <h4>Registrated Date</h4>
+    <%= learning.learning_post_date %>
+
+  </div>
+<% end %>
+<%= paginate @learnings %>

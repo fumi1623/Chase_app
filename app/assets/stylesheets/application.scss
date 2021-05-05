@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+
+
+.header-text {
+  text-decoration: none;
+  color: #f5f5f5;
+  margin-left: 20px;
+  font-size: 20px;
+}
+.header-text:hover {
+  text-decoration: none;
+}
+
