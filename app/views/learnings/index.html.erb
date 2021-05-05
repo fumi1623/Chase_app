@@ -1,23 +1,45 @@
-
-<% @learnings.each do |learning| %>
-  <div>
-    <h4>Learning Title</h4>
-    <%= link_to learning_path(learning.id) do %>
-      <%= learning.learning_name %>
-    <% end %>
-
-    <h4>Learning Image</h4>
-    <%= attachment_image_tag learning, :learning_image %>
-
-    <h4>Learning Detail</h4>
-    <%= learning.learning_detail %>
-
-    <h4>Registrated Date</h4>
-    <%= learning.learning_post_date %>
-
-    <p><%= link_to "#{learning.learning_comments.count} コメント", learning_path(learning.id) %></p>
-
-  </div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'learnings' %>
 <% end %>
+
+<div class="container">
+  <% @learnings.each do |learning| %>
+  <div class="row">
+    <div class="col-12">
+      <h4 class="text-center">
+        <%= link_to learning_path(learning.id), class: 'learning-title' do %>
+          <p>------------------------------</br>
+          <i class="fas fa-book-open"></i>　<%= learning.learning_name %></br>
+          ------------------------------</p>
+        <% end %>
+      </h4>
+    </div>
+  </div>
+    <div class="row learning-box">
+      <div class="col text-center">
+        <!--<h4>Learning Image</h4>-->
+        <%= attachment_image_tag learning, :learning_image, :fill, 200, 200, class: 'learning-img' %>
+      </div>
+      <div class="col-8">
+
+        <h4>コースの詳細</h4>
+        <% if learning.learning_detail.empty? %>
+          <p>no data</p>
+          <% else %>
+          <%= learning.learning_detail %>
+        <% end %>
+
+        <% if learning.learning_post_date.nil? %>
+          <h6 class="learning-date">登録日:no data</h6>
+          <% else %>
+          <h6 class="learning-date">登録日:<%= learning.learning_post_date %></h6>
+        <% end %>
+
+        <p>コメント：<%= link_to "#{learning.learning_comments.count}", learning_path(learning.id) %></p>
+
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <%= paginate @learnings %>

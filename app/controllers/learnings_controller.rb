@@ -7,8 +7,11 @@ class LearningsController < ApplicationController
   def create
     @learning = Learning.new(learning_params)
     @learning.user_id = current_user.id
-    @learning.save
-    redirect_to learnings_path
+    if @learning.save
+      redirect_to learnings_path
+    else
+      render :new
+    end
   end
 
   def index

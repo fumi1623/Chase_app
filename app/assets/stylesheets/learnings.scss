@@ -1,3 +1,24 @@
 // Place all the styles related to the Learnings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.learning-box {
+  margin-top: 20px;
+}
+
+.learning-img {
+  padding: 5px;
+  border: 9px solid #006400;
+}
+
+.learning-title {
+  text-decoration: none;
+  color: #202020;
+}
+.learning-title:hover{
+  text-decoration: none;
+}
+
+.learning-date {
+  margin-top: 15px;
+}
