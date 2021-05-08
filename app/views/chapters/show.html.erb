@@ -1,0 +1,5 @@
+<% if @chapter.video.attached? %>
+  <video src="<%= rails_blob_path(@chapter.video) %>" type="video/mp4" controls></video>
+  <p><%= @chapter.title %></p> <br>
+  <p><%= @chapter.chapter_text %></p>
+<% end %>

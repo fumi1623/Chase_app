@@ -24,6 +24,13 @@ class LearningsController < ApplicationController
   end
 
   def edit
+    @learning = Learning.find(params[:id])
+  end
+
+  def update
+    @learning = Learning.find(params[:id])
+    @learning.update(learning_params)
+    redirect_to learning_path(@learning)
   end
 
   def destroy
