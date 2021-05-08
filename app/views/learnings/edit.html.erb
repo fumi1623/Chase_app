@@ -1,0 +1,21 @@
+<h1>EditLearning</h1>
+
+<% if @learning.errors.any? %>
+  <%= @learning.errors.count %>件のエラーが発生しました
+  <% @learning.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+
+<%= form_with model: @learning, local:true do |f| %>
+  <h4>Learning Title</h4>
+  <%= f.text_field :learning_name %>
+  <h4>Learning Image</h4>
+  <%= f.attachment_field :learning_image %>
+  <h4>Learning Detail</h4>
+  <%= f.text_field :learning_detail %>
+  <h4>Registration Date</h4>
+  <%= f.date_field :learning_post_date %>
+  <%= f.submit 'edit' %>
+<% end %>

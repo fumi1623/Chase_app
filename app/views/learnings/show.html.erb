@@ -1,19 +1,33 @@
+<div class="container show-box">
+  <div class="col-8 mx-auto">
+    <div class="row">
+      <div class="mx-auto">
+        <h3 class="show-title"><%= attachment_image_tag @learning, :learning_image, :fill, 40, 40, class: 'learning-show-img' %>
+        <%= @learning.learning_name %></h3>
+      </div>
+    </div>
+    <h4>コースの詳細</h4>
+    <p class="show-detail"><%= @learning.learning_detail %></p>
+
+    <p>
+      コースの投稿日：
+      <% if @learning.learning_post_date.nil? %>
+        no data
+        <% else %>
+        <%= @learning.learning_post_date %>
+      <% end %>
+    </p>
+
+    <% if @learning.user == current_user %>
+      <%= link_to "コースを編集する", edit_learning_path(@learning), mothod: :edit %>
+      <%= link_to "コースを削除する", learning_path(@learning), method: :delete %>
+    <% end %>
+
+  </div>
+</div>
+
 <div>
-  <h4>Learning Title</h4>
-  <%= @learning.learning_name %>
-
-  <h4>Learning Image</h4>
-  <%= attachment_image_tag @learning, :learning_image %>
-
-  <h4>Learning Detail</h4>
-  <%= @learning.learning_detail %>
-
-  <h4>Registrated Date</h4>
-  <%= @learning.learning_post_date %>
-
-  <% if @learning.user == current_user %>
-    <%= link_to "Delete", learning_path(@learning), method: :delete %>
-  <% end %>
+  <%= link_to '  Create new chapter', new_learning_chapter_path(@learning), class: '' %>
 </div>
 
 <div>

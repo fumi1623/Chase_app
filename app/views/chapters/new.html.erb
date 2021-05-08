@@ -1,0 +1,6 @@
+<%= form_with(model: [@learning, @chapter], url: new_learning_chapter_path, local:true) do |f| %>
+  <p>title</p><%= f.text_field :title %></br>
+  <p>text</p><%= f.text_area :chapter_text %></br>
+  <p>video</p><%= f.file_field :video %></br>
+  <%= f.submit %>
+<% end %>
