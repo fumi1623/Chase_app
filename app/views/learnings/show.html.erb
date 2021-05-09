@@ -26,9 +26,27 @@
   </div>
 </div>
 
+
 <div>
-  <%= link_to '  Create new chapter', new_learning_chapter_path(@learning), class: '' %>
+  <p>chapter</p>
+  <p>chaptercount:<%= @learning.chapters.count %></p>
+  <div>
+    <% @learning.chapters.each do |chapter| %>
+    <p><%= chapter.title %></p>
+    <p><%= chapter.chapter_text %></p>
+    <% end %>
+  </div>
 </div>
+
+<div>
+  <%= form_with(model: [@learning, @chapter], local:true) do |f| %>
+    <p>title</p><%= f.text_field :title %></br>
+    <p>text</p><%= f.text_area :chapter_text %></br>
+    <p>video</p><%= f.file_field :video %></br>
+    <%= f.submit %>
+  <% end %>
+</div>
+
 
 <div>
 

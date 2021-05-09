@@ -1,0 +1,8 @@
+<p>chapter</p>
+<div>
+  <% @learning.chapters.each do |chapter| %>
+  <p><%= chapter.title %></p>
+  <p><%= chapter.chapter_text %></p>
+  <p><%= chapter.video %></p>
+  <% end %>
+</div>
