@@ -21,6 +21,7 @@ class LearningsController < ApplicationController
   def show
     @learning = Learning.find(params[:id])
     @learning_comment = LearningComment.new
+    @chapter = Chapter.new
   end
 
   def edit

@@ -1,14 +1,11 @@
 class ChaptersController < ApplicationController
 
-  def new
-    @chapter = Chapter.new
-  end
-
   def create
-    @learning = Learning.find(params[:learning_id])
-    @chapter = Chapter.new(chapter_params)
-    @chapter.save
-    redirect_to @chapter
+    learning = Learning.find(params[:learning_id])
+    chapter = current_user.chapters.new(chapter_params)
+    chapter.learning_id = learning.id
+    chapter.save
+    redirect_to learning_path(learning)
   end
 
   def show
